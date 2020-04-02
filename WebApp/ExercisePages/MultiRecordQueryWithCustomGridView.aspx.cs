@@ -15,7 +15,7 @@ namespace WebApp.ExercisePages
         protected void Page_Load(object sender, EventArgs e)
         {
             MessageLabel.Text = "";
-            TeamInfo.Visible = false;
+            
             if (!Page.IsPostBack)
             {
                 BindList();
@@ -47,29 +47,13 @@ namespace WebApp.ExercisePages
             if (TeamList.SelectedIndex == 0)
             {
                 MessageLabel.Text = "Select a team to view its players.";
+                Coach.Text = "";
+                AssistantCoach.Text = "";
+                Wins.Text = "";
+                Losses.Text = "";
             }
             else
             {
-                TeamController teamController = new TeamController();
-                Teams teamInfo = null;
-                teamInfo = teamController.Teams_FindByID(int.Parse(TeamList.SelectedValue));
-                if (teamInfo == null)
-                {
-                    TeamInfo.Visible = false;
-                    Coach.Text = "";
-                    AssistantCoach.Text = "";
-                    Wins.Text = "";
-                    Losses.Text = "";
-                }
-                else
-                {
-                    TeamInfo.Visible = true;
-                    Coach.Text = teamInfo.Coach;
-                    AssistantCoach.Text = teamInfo.AssistantCoach;
-                    Wins.Text = teamInfo.Wins.ToString();
-                    Losses.Text = teamInfo.Losses.ToString();
-                }
-
                 try
                 {
                     PlayerController playerController = new PlayerController();
@@ -78,7 +62,15 @@ namespace WebApp.ExercisePages
                     listOfPlayers.Sort((x, y) => x.PlayerName.CompareTo(y.PlayerName));
                     PlayerList.DataSource = listOfPlayers;
                     PlayerList.DataBind();
-                    //PlayerList.Columns[PlayerList.Columns.Count - 1].Visible = false;
+                    
+
+                    TeamController teamController = new TeamController();
+                    Teams teamInfo = null;
+                    teamInfo = teamController.Teams_FindByID(int.Parse(TeamList.SelectedValue));
+                    Coach.Text = teamInfo.Coach;
+                    AssistantCoach.Text = teamInfo.AssistantCoach;
+                    Wins.Text = teamInfo.Wins.ToString();
+                    Losses.Text = teamInfo.Losses.ToString();
                 }
                 catch (Exception ex)
                 {
@@ -86,17 +78,16 @@ namespace WebApp.ExercisePages
                 }
             }
         }
-        protected void PlayerList_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        protected void List02_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             PlayerList.PageIndex = e.NewPageIndex;
             Fetch_Click(sender, new EventArgs());
         }
-
-        protected void PlayerList_SelectedIndexChanged(object sender, EventArgs e)
+        protected void List02_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GridViewRow playerRow = PlayerList.Rows[PlayerList.SelectedIndex];
-            string playerid = (playerRow.FindControl("PlayerID") as Label).Text;
-            Response.Redirect("CRUDPage.aspx?pid=" + playerid);
+            GridViewRow agvrow = PlayerList.Rows[PlayerList.SelectedIndex];
+            string playerid = (agvrow.FindControl("PlayerID") as Label).Text;
+            Response.Redirect("ReceivingPage.aspx?pid=" + playerid);
         }
     }
 }

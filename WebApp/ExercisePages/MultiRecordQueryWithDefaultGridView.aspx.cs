@@ -25,12 +25,12 @@ namespace WebApp.ExercisePages
             try
             {
                 TeamController sysmgr = new TeamController();
-                List<Entity01> info = null;
+                List<Teams> info = null;
                 info = sysmgr.List();
-                info.Sort((x, y) => x.CategoryName.CompareTo(y.CategoryName));
+                info.Sort((x, y) => x.TeamName.CompareTo(y.TeamName));
                 List01.DataSource = info;
-                List01.DataTextField = nameof(Entity01.CategoryName);
-                List01.DataValueField = nameof(Entity01.CategoryID);
+                List01.DataTextField = nameof(Teams.TeamName);
+                List01.DataValueField = nameof(Teams.TeamID);
                 List01.DataBind();
                 List01.Items.Insert(0, "select...");
             }
@@ -52,7 +52,7 @@ namespace WebApp.ExercisePages
                     PlayerController sysmgr = new PlayerController();
                     List<Players> info = null;
                     info = sysmgr.FindByID(int.Parse(List01.SelectedValue));
-                    info.Sort((x, y) => x.ProductName.CompareTo(y.ProductName));
+                    info.Sort((x, y) => x.PlayerName.CompareTo(y.PlayerName));
                     List02.DataSource = info;
                     List02.DataBind();
                 }

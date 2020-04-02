@@ -8,55 +8,53 @@
         <br /><br />
         <asp:Label ID="MessageLabel" runat="server"></asp:Label>
         <br />
-        <asp:Panel id="TeamInfo" runat="server">
-            <asp:Label runat="server" Text="Coach: "></asp:Label>&nbsp;&nbsp;
-            <asp:Label id="Coach" runat="server"></asp:Label>
-            <br />
-            <asp:Label runat="server" Text="Assistant Coach: "></asp:Label>&nbsp;&nbsp;
-            <asp:Label id="AssistantCoach" runat="server"></asp:Label>
-            <br />
-            <asp:Label runat="server" Text="Wins: "></asp:Label>&nbsp;&nbsp;
-            <asp:Label id="Wins" runat="server"></asp:Label>
-            <br />
-            <asp:Label runat="server" Text="Losses: "></asp:Label>&nbsp;&nbsp;
-            <asp:Label id="Losses" runat="server"></asp:Label>
-        </asp:Panel>
+                <div class="row">
+            <div class="col-md-12">
+                <asp:Label runat="server" Text="Coach:"></asp:Label>&nbsp;&nbsp;
+                <asp:Label ID="Coach" runat="server"></asp:Label>
+            </div>
+            <div class="col-md-12">
+                <asp:Label runat="server" Text="Assistant Coach:"></asp:Label>&nbsp;&nbsp;
+                <asp:Label ID="AssistantCoach" runat="server"></asp:Label>
+            </div>
+            <div class="col-md-12">
+                <asp:Label runat="server" Text="Wins:"></asp:Label>&nbsp;&nbsp;
+                <asp:Label ID="Wins" runat="server"></asp:Label>
+            </div>
+            <div class="col-md-12">
+                <asp:Label runat="server" Text="Losses:"></asp:Label>&nbsp;&nbsp;
+                <asp:Label ID="Losses" runat="server"></asp:Label>
+            </div>
+        </div>
         <br />
             <asp:GridView ID="PlayerList" runat="server" 
             AutoGenerateColumns="False"
              CssClass="table table-striped" GridLines="Horizontal"
-             BorderStyle="None" AllowPaging="True" OnPageIndexChanging="Player_PageIndexChanging" PageSize="5" OnSelectedIndexChanged="PlayerList_SelectedIndexChanged">
+             BorderStyle="None" AllowPaging="True" OnPageIndexChanging="List02_PageIndexChanging" PageSize="5" OnSelectedIndexChanged="List02_SelectedIndexChanged">
 
             <Columns>
-                <asp:TemplateField HeaderText="Player ID" Visible="true">
+<%--                <asp:TemplateField HeaderText="Player ID" Visible="true">
                     <ItemStyle HorizontalAlign="Left" />
                     <ItemTemplate>
                         <asp:Label ID="PlayerID" runat="server"
                             Text='<%# string.Format("{0}", Eval("PlayerID")) %>'>
                         </asp:Label>
                     </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="First Name" Visible="true">
+                </asp:TemplateField>--%>
+                <asp:TemplateField HeaderText="Name">
                     <ItemStyle HorizontalAlign="Left" />
                     <ItemTemplate>
-                        <asp:Label ID="FirstName" runat="server"
-                            Text='<%# Eval("FirstName") %>'>
+                        <asp:Label ID="PlayerName" runat="server"
+                            Text='<%# Eval("PlayerName") %>'>
                         </asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Last Name" Visible="true">
-                    <ItemStyle HorizontalAlign="Left" />
-                    <ItemTemplate>
-                        <asp:Label ID="LastName" runat="server"
-                            Text='<%# Eval("LastName") %>'>
-                        </asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
+                
                 <asp:TemplateField HeaderText="Age" Visible="true">
                     <ItemStyle HorizontalAlign="Left" />
                     <ItemTemplate>
                         <asp:Label ID="Age" runat="server"
-                            Text='<%# string.Format("{0}", Eval("Age")) %>'>
+                            Text='<%# Eval("Age") %>'>
                         </asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
@@ -68,33 +66,23 @@
                         </asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Guardian ID" Visible="true">
-                    <ItemStyle HorizontalAlign="Left" />
-                    <ItemTemplate>
-                        <asp:Label ID="GuardianID" runat="server"
-                            Text='<%# string.Format("{0}", Eval("GuardianID")) %>'>
-                        </asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Alberta Health Care Number" Visible="true">
+               
+                <asp:TemplateField HeaderText="Med Alert">
                     <itemstyle horizontalalign="Left" />
                     <itemtemplate>
-                        <asp:Label ID="AlbertaHealthCareNumber" runat="server"
-                            Text='<%# Eval("AlbertaHealthCareNumber") %>'>
-                        </asp:Label>
-                    </itemtemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Medical Alert Details" Visible="true">
-                    <ItemStyle HorizontalAlign="Left" />
-                    <ItemTemplate>
                         <asp:Label ID="MedicalAlertDetails" runat="server"
                             Text='<%# Eval("MedicalAlertDetails") %>'>
                         </asp:Label>
-                    </ItemTemplate>
+                    </itemtemplate>
                 </asp:TemplateField>
+                
             </Columns>
-
+            <EmptyDataTemplate>
+                No data available at this time
+            </EmptyDataTemplate>
+            <PagerSettings FirstPageText="Start" LastPageText="End" Mode="NumericFirstLast" PageButtonCount="3" />
         </asp:GridView>
         <%-- Todo Custom Grid View --%>
+
     </div>
 </asp:Content>

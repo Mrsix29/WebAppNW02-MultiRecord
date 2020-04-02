@@ -15,22 +15,22 @@ namespace WebApp.ExercisePages
     {
 
         /// <summary>
-        /// Label1 control.
+        /// TeamsLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label TeamsLabel;
 
         /// <summary>
-        /// List01 control.
+        /// TeamList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList List01;
+        protected global::System.Web.UI.WebControls.DropDownList TeamList;
 
         /// <summary>
         /// Fetch control.
@@ -51,12 +51,57 @@ namespace WebApp.ExercisePages
         protected global::System.Web.UI.WebControls.Label MessageLabel;
 
         /// <summary>
-        /// List02 control.
+        /// TeamInfo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView List02;
+        protected global::System.Web.UI.WebControls.Panel TeamInfo;
+
+        /// <summary>
+        /// Coach control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Coach;
+
+        /// <summary>
+        /// AssistantCoach control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label AssistantCoach;
+
+        /// <summary>
+        /// Wins control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Wins;
+
+        /// <summary>
+        /// Losses control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Losses;
+
+        /// <summary>
+        /// PlayerList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView PlayerList;
     }
 }

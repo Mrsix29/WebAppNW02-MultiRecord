@@ -10,16 +10,20 @@ using DBSystem.ENTITIES;
 
 namespace DBSystem.BLL
 {
-    public class Controller02 //Product
+    public class TeamController //Category
     {
-        public List<Entity02> FindByID(int id)
+        public List<Teams> List()
         {
             using (var context = new Context())
             {
-                IEnumerable<Entity02> results =
-                    context.Database.SqlQuery<Entity02>("Products_GetByCategories @ID"
-                        , new SqlParameter("ID", id));
-                return results.ToList();
+                return context.Teams.ToList();
+            }
+        }
+        public Teams Teams_FindByID(int teamid)
+        {
+            using (var context = new Context())
+            {
+                return context.Teams.Find(teamid);
             }
         }
     }

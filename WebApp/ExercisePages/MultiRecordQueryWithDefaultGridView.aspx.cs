@@ -24,7 +24,7 @@ namespace WebApp.ExercisePages
         {
             try
             {
-                Controller01 sysmgr = new Controller01();
+                TeamController sysmgr = new TeamController();
                 List<Entity01> info = null;
                 info = sysmgr.List();
                 info.Sort((x, y) => x.CategoryName.CompareTo(y.CategoryName));
@@ -49,8 +49,8 @@ namespace WebApp.ExercisePages
             {
                 try
                 {
-                    Controller02 sysmgr = new Controller02();
-                    List<Entity02> info = null;
+                    PlayerController sysmgr = new PlayerController();
+                    List<Players> info = null;
                     info = sysmgr.FindByID(int.Parse(List01.SelectedValue));
                     info.Sort((x, y) => x.ProductName.CompareTo(y.ProductName));
                     List02.DataSource = info;
